@@ -240,6 +240,12 @@ globalkeys = awful.util.table.join(
             awful.util.spawn("capscr", false)
         end),
 
+    -- Battery monitor
+    awful.key({ modkey,           }, "a", 
+        function ()
+            awful.util.spawn_with_shell("xfce4-power-manager --customize")
+        end),
+
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
