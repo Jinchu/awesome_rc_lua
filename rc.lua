@@ -230,7 +230,8 @@ globalkeys = awful.util.table.join(
         end),
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
 
-    awful.key({ modkey,           }, "F12", function () awful.util.spawn("gnome-screensaver-command --lock") end),
+    awful.key({ modkey,           }, "F12", 
+        function () awful.util.spawn("gnome-screensaver-command --lock") end),
     awful.key({                   }, "Print",
         function ()
             awful.util.spawn("capscr", false)
@@ -240,9 +241,8 @@ globalkeys = awful.util.table.join(
 
     -- Battery monitor
     awful.key({ modkey,           }, "a", 
-        function ()
-            awful.util.spawn_with_shell("xfce4-power-manager --customize")
-        end),
+        function () awful.util.spawn_with_shell("xfce4-power-manager --customize") end),
+    awful.key({ modkey, 
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
@@ -457,6 +457,7 @@ end)
 -- starting programs that I need almost everythime
 awful.util.spawn_with_shell("pgrep -u $USER -x nm-applet > /dev/null || (nm-applet &)")
 awful.util.spawn_with_shell("xfce4-power-manager")
+awful.utli.spawn("xbacklight -set 69")
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
