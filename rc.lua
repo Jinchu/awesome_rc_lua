@@ -236,7 +236,7 @@ globalkeys = awful.util.table.join(
         function () awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({                   }, "Print",
         function ()
-            awful.util.spawn("capscr", false)
+            awful.util.spawn("import -window root -delay 2000 screenshot.png")
         end),
     awful.key({ modkey,           }, "t",
         function () awful.util.spawn_with_shell("~/Telegram/Telegram") end),
