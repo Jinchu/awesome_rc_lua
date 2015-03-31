@@ -230,7 +230,10 @@ globalkeys = awful.util.table.join(
         end),
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
 
-    awful.key({ modkey,           }, "F12", function () awful.util.spawn("gnome-screensaver-command --lock") end),
+    awful.key({ modkey, "Control" }, "l",
+        function () awful.util.spawn("xscreensaver-command -prefs") end),
+    awful.key({ modkey,           }, "F12",
+        function () awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({                   }, "Print",
         function ()
             awful.util.spawn("capscr", false)
@@ -457,6 +460,7 @@ end)
 -- starting programs that I need almost everythime
 awful.util.spawn_with_shell("pgrep -u $USER -x nm-applet > /dev/null || (nm-applet &)")
 awful.util.spawn_with_shell("xfce4-power-manager")
+awful.util.spawn_with_shell("xscreensaver")
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
