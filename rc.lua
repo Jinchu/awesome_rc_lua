@@ -38,7 +38,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init("/home/psimolin/awesome_rc_lua/theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "gnome-terminal"
@@ -72,7 +72,8 @@ local layouts =
 
 -- {{{ Wallpaper
 if beautiful.wallpaper then
-    for s = 1, screen.count() do
+    gears.wallpaper.maximized(beautiful.wallpaper1, 1, true)
+    for s = 2, screen.count() do
         gears.wallpaper.maximized(beautiful.wallpaper, s, true)
     end
 end
